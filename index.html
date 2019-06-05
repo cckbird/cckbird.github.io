@@ -10,18 +10,20 @@
   <button onclick="jump()">ios jump</button>
   <button onclick="jumpAndroid()">android jump</button>
   <button onclick="switchJump()">switch</button>
-  <span id="currentJump"></span>
+  <span id="currentJump" onclick="selfJump()"></span>
 
   <script>
       function jump() {
+        console.log('jump')
         window.location.href = 'https://open.cmbchina.com/dispatch/go?url=ProcessCenter'
       }
       function jumpAndroid() {
+        console.log('jumpAndroid')
         window.location.href = 'cmblife://go?url=ProcessCenter'
       }
 
 
-    let selfJump
+    var selfJump
 
     if (localStorage.getItem('jump')) {
       currentJump.innerText = 'ios'
@@ -31,8 +33,10 @@
       selfJump = jumpAndroid
     }
 
-
-    setTimeout(selfJump, 5000)
+    
+    setTimeout(() => {
+      currentJump.click();
+    }, 5000)
 
     function switchJump() {
       localStorage.setItem('jump', !localStorage.getItem('jump'))
