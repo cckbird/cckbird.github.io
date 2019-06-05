@@ -9,16 +9,35 @@
 <body>
   <button onclick="jump()">ios jump</button>
   <button onclick="jumpAndroid()">android jump</button>
+  <button onclick="switchJump()">switch</button>
+  <span id="currentJump"></span>
 
   <script>
-    function jump() {
-      window.location.href = 'https://open.cmbchina.com/dispatch/go?url=ProcessCenter'
-    }
-    setTimeout(jumpAndroid, 5000)
+      function jump() {
+        window.location.href = 'https://open.cmbchina.com/dispatch/go?url=ProcessCenter'
+      }
+      function jumpAndroid() {
+        window.location.href = 'cmblife://go?url=ProcessCenter'
+      }
 
-    function jumpAndroid() {
-      window.location.href = 'cmblife://go?url=ProcessCenter'
+
+    let selfJump
+
+    if (localStorage.getItem('jump')) {
+      currentJump.innerText = 'ios'
+      selfJump = jump
+    } else {
+      currentJump.innerText = 'android'
+      selfJump = jumpAndroid
     }
+
+
+    setTimeout(selfJump, 5000)
+
+    function switchJump() {
+      localStorage.setItem('jump', !localStorage.getItem('jump'))
+    }
+
   </script>
 </body>
 </html>
