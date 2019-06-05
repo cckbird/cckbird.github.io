@@ -25,7 +25,7 @@
 
     var selfJump
 
-    if (localStorage.getItem('jump')) {
+    if (localStorage.getItem('jump') === 'true') {
       currentJump.innerText = 'ios'
       selfJump = jump
     } else {
@@ -33,7 +33,6 @@
       selfJump = jumpAndroid
     }
 
-    
     setTimeout(() => {
       currentJump.click();
     }, 5000)
