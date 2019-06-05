@@ -1,10 +1,24 @@
-<button onclick="jump">jump</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="jump()">ios jump<button>
+  <button onclick="jumpAndroid()">android jump<button>
 
-<script>
-  function jump() {
-    window.location.href = 'https://open.cmbchina.com/dispatch/go?url=ProcessCenter'
-  }
-  setTimeout(function() {
+  <script>
+    function jump() {
+      window.location.href = 'https://open.cmbchina.com/dispatch/go?url=ProcessCenter'
+    }
     jump()
-  }, 3000)
-</script>
+
+    function jumpAndroid() {
+      window.location.href = 'cmblife://go?url=ProcessCenter'
+    }
+  </script>
+</body>
+</html>
