@@ -25,7 +25,7 @@
 
     var selfJump
 
-    if (localStorage.getItem('jump') === 'false') {
+    if (localStorage.getItem('jumpType') === 'false') {
       currentJump.innerText = 'android'
       selfJump = jumpAndroid
     } else {
@@ -38,7 +38,7 @@
     }, 5000)
 
     function switchJump() {
-      localStorage.setItem('jump', localStorage.getItem('jump') === 'false')
+      localStorage.setItem('jumpType', localStorage.getItem('jumpType') === 'false')
       location.reload()
     }
 
